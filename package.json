@@ -1,0 +1,26 @@
+{
+  "name": "browao",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maillunex-lang/browao.git"
+  },
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/maillunex-lang/browao/issues"
+  },
+  "homepage": "https://github.com/maillunex-lang/browao#readme",
+  "private": true,
+  "dependencies": {
+    "preact": "^11.2.0"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8"
+  }
+}
