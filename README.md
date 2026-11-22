@@ -44,6 +44,6 @@ SQLite по умолчанию хранит данные в `data/world.sqlite`.
 
 ## Демо без установки
 
-Скачайте [browao-demo.html](https://github.com/maillunex-lang/browao/releases/download/v0.1.0-demo/browao-demo.html) и откройте файл в браузере. Внутри уже есть карта мира, маршрут по Адриатике и три PvE-боя. Для сборки этого файла из исходников запустите `npm ci` и `npm run demo`. Готовый файл появится в `dist/browao-demo.html`.
+Скачайте [browao-demo.html](https://github.com/maillunex-lang/browao/blob/demo/browao-demo.html) и откройте файл в браузере. Внутри уже есть карта мира, маршрут по Адриатике и три PvE-боя. Для сборки этого файла из исходников запустите `npm ci` и `npm run demo`. Готовый файл появится в `dist/browao-demo.html`.
 
-Для кооператива в [релизе](https://github.com/maillunex-lang/browao/releases/tag/v0.1.0-demo) есть отдельная сборка с сервером. Она запускается на Node.js 24.
+Для кооператива в [ветке демо](https://github.com/maillunex-lang/browao/tree/demo) есть отдельная сборка с сервером. Она запускается на Node.js 24.
