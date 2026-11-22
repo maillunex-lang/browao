@@ -1,0 +1,18 @@
+{
+  "continents": [
+    {"id":"na","name":"Северная Америка","coordinates":[-107,48]},
+    {"id":"sa","name":"Южная Америка","coordinates":[-62,-15]},
+    {"id":"eu","name":"Европа","coordinates":[17,51]},
+    {"id":"af","name":"Африка","coordinates":[19,7]},
+    {"id":"as","name":"Азия","coordinates":[94,43]},
+    {"id":"oc","name":"Океания","coordinates":[140,-25]},
+    {"id":"an","name":"Антарктида","coordinates":[0,-78]}
+  ],
+  "places": [
+    {"id":"venice","name":"Венеция","coordinates":[12.339,45.434]},
+    {"id":"caorle","name":"Каорле","coordinates":[12.888,45.598]},
+    {"id":"grado","name":"Градо","coordinates":[13.385,45.678]},
+    {"id":"miramare","name":"Мирамаре","coordinates":[13.713,45.702]},
+    {"id":"trieste","name":"Триест","coordinates":[13.768,45.650]}
+  ]
+}

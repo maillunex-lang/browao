@@ -54,3 +54,27 @@ p, small { color: var(--muted); }
 @media (max-width: 620px) {
   .board { grid-template-columns: minmax(0, 1fr); }
 }
+.world-nav, .continent-list { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0; }
+.world-nav [aria-current], .continent-list [aria-pressed="true"] { border-color: var(--gold); color: var(--gold); }
+.world-heading { margin: 20px 0 14px; }
+.world-heading p { margin-top: 6px; }
+.map { position: relative; border: 1px solid var(--line); border-radius: 12px; background: #182c32; }
+.map svg { display: block; width: 100%; border-radius: inherit; }
+.map path { fill: #3a5040; stroke: #84967e; stroke-width: 1; stroke-linejoin: round; }
+.map-marker { position: absolute; transform: translate(-50%, -50%); width: 44px; min-height: 44px; background: transparent; border: 0; display: grid; place-items: center; padding: 0; }
+.map-marker span { color: #f4ecd9; border-radius: 50%; background: #242d25; border: 1px solid #a8ae92; font-size: .75rem; display: grid; place-items: center; width: 22px; height: 22px; }
+.map-marker[aria-pressed="true"] span { background: var(--gold); color: #211a11; }
+.regional-map polyline { stroke: var(--gold); stroke-width: 2; stroke-dasharray: 5 4; fill: none; }
+.regional-map circle { fill: #24342a; stroke: #eee4cf; stroke-width: 1.5; }
+.regional-map text { text-anchor: middle; dominant-baseline: central; font-size: 16px; fill: #fff; }
+.regional-map .current-marker circle { fill: var(--gold); }
+.regional-map .current-marker text { fill: #211a11; }
+.route-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 8px 20px; padding-left: 24px; }
+.route-list small, .travel small { display: block; margin-top: 2px; }
+.route-list [aria-current] { color: var(--gold); font-weight: 700; }
+.world-panel { margin: 10px 0; border: 1px solid var(--line); border-radius: 12px; background: #1c231f; padding: 12px; }
+.world-panel p { margin: 6px 0; }
+.world-panel button { margin-top: 4px; }
+.travel { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.travel button { text-align: left; }
+.save-warning { color: var(--gold); margin: 8px 0; }

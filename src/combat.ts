@@ -52,13 +52,16 @@ export const scenarios: { name: string; detail: string; enemies: Fighter[] }[] =
 const row = (cell: number) => Math.floor(cell / 3)
 const living = (battle: Battle, side: Side) => battle.units.filter(unit => unit.side === side && unit.hp > 0)
 
-export function startBattle(scenario: number): Battle {
+export function startBattle(scenario: number, upgrades?: { recruit: boolean; upgrade: boolean }): Battle {
   const setup = (fighters: Fighter[], side: Side): Unit[] => fighters.map(([name, role, cell, hp], index) => ({
     id: side + index, name, role, side, cell, hp, maxHp: hp, shotReady: 1, covered: false,
   }))
+  const roster: Fighter[] = [party[0], party[1], party[2]]
+  if (upgrades?.upgrade) roster[0] = ['Командир', 'leader', 0, 12]
+  if (upgrades?.recruit) roster[2] = ['Лучник-наёмник', 'archer', 4, 10]
   return {
     round: 1,
-    units: [...setup(party, 'party'), ...setup(scenarios[scenario].enemies, 'enemy')],
+    units: [...setup(roster, 'party'), ...setup(scenarios[scenario].enemies, 'enemy')],
     log: ['Отряды заняли позиции.'],
     winner: null,
   }
