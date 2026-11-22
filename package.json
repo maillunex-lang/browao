@@ -7,7 +7,8 @@
     "preview": "vite preview",
     "atlas": "node scripts/generate-atlas.mjs",
     "server": "node server/index.mjs",
-    "start": "node server/index.mjs"
+    "start": "node server/index.mjs",
+    "demo": "tsc --noEmit && vite build --mode demo --base ./ --outDir dist/demo && node scripts/package-demo.mjs"
   },
   "repository": {
     "type": "git",

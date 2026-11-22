@@ -41,3 +41,9 @@ SQLite по умолчанию хранит данные в `data/world.sqlite`.
 Береговые линии взяты из Natural Earth v5.1.2, данные в общественном достоянии. Для глобальной карты используется слой суши 1:110 млн, для региональной — 1:10 млн. Скрипт `npm run atlas` загружает эти слои и готовит геометрию через d3-geo. Обычная сборка берёт готовый файл из репозитория. [Natural Earth](https://github.com/nvkelso/natural-earth-vector/tree/v5.1.2) · [d3-geo](https://github.com/d3/d3-geo)
 
 [GDD](GDD.md) · [Дорожная карта](ROADMAP.md)
+
+## Демо без установки
+
+Скачайте [browao-demo.html](https://github.com/maillunex-lang/browao/releases/download/v0.1.0-demo/browao-demo.html) и откройте файл в браузере. Внутри уже есть карта мира, маршрут по Адриатике и три PvE-боя. Для сборки этого файла из исходников запустите `npm ci` и `npm run demo`. Готовый файл появится в `dist/browao-demo.html`.
+
+Для кооператива в [релизе](https://github.com/maillunex-lang/browao/releases/tag/v0.1.0-demo) есть отдельная сборка с сервером. Она запускается на Node.js 24.

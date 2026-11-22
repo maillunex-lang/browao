@@ -7,6 +7,8 @@ import { OnlineScreen } from './OnlineScreen'
 import { contracts, legs, loadProgress, places, saveProgress, train, travel, updateContract, type Progress } from './world'
 import './style.css'
 
+const demo = import.meta.env.MODE === 'demo'
+
 type Page = 'atlas' | 'route' | 'squad' | 'journal' | 'training' | 'online'
 const statuses = { new: 'Доступен', active: 'Принят', won: 'Готов к сдаче', claimed: 'Завершён' }
 
@@ -57,7 +59,7 @@ function RegionMap({ location }: { location: number }) {
 }
 
 function App() {
-  const [page, setPage] = useState<Page>(() => location.hash === '#online' ? 'online' : 'atlas')
+  const [page, setPage] = useState<Page>(() => !demo && location.hash === '#online' ? 'online' : 'atlas')
   const [progress, setProgress] = useState(loadProgress)
   const latestProgress = useRef(progress)
   const [storageError, setStorageError] = useState(false)
@@ -86,9 +88,10 @@ function App() {
   }
 
   return <main>
-    <header class="masthead"><a href="./">BrowAO</a><span>Северная Адриатика</span></header>
+    <header class="masthead"><a href="./">BrowAO</a><span>{demo ? 'Демо · Северная Адриатика' : 'Северная Адриатика'}</span></header>
     {fight === null && <nav class="world-nav" aria-label="Основная навигация">
       {([['atlas', 'Атлас'], ['route', 'Маршрут'], ['journal', 'Контракты'], ['squad', 'Отряд'], ['training', 'Учения'], ['online', 'Онлайн']] as const)
+        .filter(([id]) => !demo || id !== 'online')
         .map(([id, name]) => <button key={id} aria-current={id === page ? 'page' : undefined} onClick={() => open(id)}>{name}</button>)}
     </nav>}
     {storageError && <p class="save-warning" role="alert">Браузер не сохраняет прогресс. Он доступен до закрытия страницы.</p>}
