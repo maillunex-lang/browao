@@ -78,3 +78,11 @@ p, small { color: var(--muted); }
 .travel { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
 .travel button { text-align: left; }
 .save-warning { color: var(--gold); margin: 8px 0; }
+.online-form { display: flex; flex-wrap: wrap; gap: 8px; align-items: end; margin: 10px 0; }
+.online-form label { display: grid; gap: 4px; flex: 1 1 160px; min-width: 0; }
+.online-form input { font: inherit; color: inherit; border: 1px solid var(--line); border-radius: 8px; background: #141918; padding: 8px; min-height: 44px; min-width: 0; }
+.player-list, .online-chat { padding-left: 20px; margin: 8px 0; }
+.player-list li, .online-chat li { margin: 4px 0; overflow-wrap: anywhere; }
+.player-list button { margin-left: 8px; }
+.online-chat { max-height: 220px; overflow-y: auto; }
+.online-battle { margin: 12px 0; }

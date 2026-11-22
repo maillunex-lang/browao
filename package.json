@@ -5,7 +5,9 @@
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
-    "atlas": "node scripts/generate-atlas.mjs"
+    "atlas": "node scripts/generate-atlas.mjs",
+    "server": "node server/index.mjs",
+    "start": "node server/index.mjs"
   },
   "repository": {
     "type": "git",

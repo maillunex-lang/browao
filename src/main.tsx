@@ -3,10 +3,11 @@ import { useRef, useState } from 'preact/hooks'
 import points from './atlas-points.json'
 import atlas from './atlas-geometry.json'
 import { BattleScreen } from './BattleScreen'
+import { OnlineScreen } from './OnlineScreen'
 import { contracts, legs, loadProgress, places, saveProgress, train, travel, updateContract, type Progress } from './world'
 import './style.css'
 
-type Page = 'atlas' | 'route' | 'squad' | 'journal' | 'training'
+type Page = 'atlas' | 'route' | 'squad' | 'journal' | 'training' | 'online'
 const statuses = { new: 'Доступен', active: 'Принят', won: 'Готов к сдаче', claimed: 'Завершён' }
 
 function Atlas({ onRoute }: { onRoute: () => void }) {
@@ -56,7 +57,7 @@ function RegionMap({ location }: { location: number }) {
 }
 
 function App() {
-  const [page, setPage] = useState<Page>('atlas')
+  const [page, setPage] = useState<Page>(() => location.hash === '#online' ? 'online' : 'atlas')
   const [progress, setProgress] = useState(loadProgress)
   const latestProgress = useRef(progress)
   const [storageError, setStorageError] = useState(false)
@@ -66,6 +67,7 @@ function App() {
 
   function open(next: Page) {
     setPage(next)
+    if (next === 'online' || location.hash === '#online') history.replaceState(null, '', next === 'online' ? '#online' : location.pathname + location.search)
     window.scrollTo(0, 0)
   }
 
@@ -86,7 +88,7 @@ function App() {
   return <main>
     <header class="masthead"><a href="./">BrowAO</a><span>Северная Адриатика</span></header>
     {fight === null && <nav class="world-nav" aria-label="Основная навигация">
-      {([['atlas', 'Атлас'], ['route', 'Маршрут'], ['journal', 'Контракты'], ['squad', 'Отряд'], ['training', 'Учения']] as const)
+      {([['atlas', 'Атлас'], ['route', 'Маршрут'], ['journal', 'Контракты'], ['squad', 'Отряд'], ['training', 'Учения'], ['online', 'Онлайн']] as const)
         .map(([id, name]) => <button key={id} aria-current={id === page ? 'page' : undefined} onClick={() => open(id)}>{name}</button>)}
     </nav>}
     {storageError && <p class="save-warning" role="alert">Браузер не сохраняет прогресс. Он доступен до закрытия страницы.</p>}
@@ -96,6 +98,7 @@ function App() {
     : <>
       {page === 'atlas' && <Atlas onRoute={() => open('route')} />}
       {page === 'training' && <BattleScreen />}
+      {page === 'online' && <OnlineScreen />}
       {page === 'route' && <>
         <div class="world-heading"><h1>Северная Адриатика</h1><p>В пути по игровому времени · {progress.elapsed} мин</p></div>
         <RegionMap location={progress.location} />
